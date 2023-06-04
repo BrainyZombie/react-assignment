@@ -9,18 +9,20 @@ interface Problem {
 	acceptance: string;
 }
 function App() {
-	const [user, setUser] = React.useState<User | undefined>({
-		token: 0,
-		name: "test",
-		profileImg: new URL("https://i.imgur.com/0kZB2Sb.png"),
-	});
+	const [user, setUser] = React.useState<User | undefined>(undefined);
 	return (
-		<>
+		<div
+			style={{
+				background: "rgb(26,26,26)",
+				width: "100vw",
+				height: "100vh",
+			}}
+		>
 			<UserContextProvider user={user}>
 				<MenuBar />
 				<Outlet />
 			</UserContextProvider>
-		</>
+		</div>
 	);
 }
 

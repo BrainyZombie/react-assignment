@@ -7,7 +7,7 @@ export type ConditionalRouteProps = {
 	children?: ReactNode;
 };
 
-export default function ConditionalRoute({
+export function ConditionalRoute({
 	condition,
 	redirectTo,
 	children,

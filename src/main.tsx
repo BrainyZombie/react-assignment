@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./routes/App.js";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
-import ConditionalRoute from "./routes/ConditionalRoute.js";
+import { ConditionalRoute } from "./component";
 import { UserContext } from "./context/UserContext.js";
 
 const router = createBrowserRouter([
