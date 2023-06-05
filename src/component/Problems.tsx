@@ -1,4 +1,4 @@
-import { Table, TablePaginationConfig } from "antd";
+import { Table, TableColumnsType, TablePaginationConfig } from "antd";
 import React from "react";
 import { useNavigate, useNavigation } from "react-router-dom";
 import { styled } from "styled-components";
@@ -16,7 +16,7 @@ export interface ProblemsProps {
 	pageSize: number;
 }
 
-const columns = [
+const columns: TableColumnsType<object> = [
 	{
 		title: "Name",
 		dataIndex: "name",
@@ -26,6 +26,22 @@ const columns = [
 		title: "Difficulty",
 		dataIndex: "difficulty",
 		key: "difficulty",
+		render(value) {
+			return (
+				<span
+					style={{
+						color:
+							value === "Easy"
+								? "green"
+								: value === "Medium"
+								? "orange"
+								: "red",
+					}}
+				>
+					{value}
+				</span>
+			);
+		},
 	},
 	{
 		title: "Acceptance",
