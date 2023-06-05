@@ -2,6 +2,7 @@ import React from "react";
 import { User, UserContextProvider } from "../context";
 import { Outlet } from "react-router-dom";
 import { MenuBar } from "../component";
+import { ConfigProvider } from "antd";
 
 interface Problem {
 	title: string;
@@ -11,18 +12,22 @@ interface Problem {
 function App() {
 	const [user, setUser] = React.useState<User | undefined>(undefined);
 	return (
-		<div
-			style={{
-				background: "rgb(26,26,26)",
-				width: "100vw",
-				height: "100vh",
-			}}
-		>
+		<>
 			<UserContextProvider user={user}>
-				<MenuBar />
-				<Outlet />
+				<ConfigProvider
+					theme={{
+						token: {
+							colorBgBase: "rgb(40, 40, 40)",
+							colorPrimary: "rgba(239, 241, 246, 1)",
+							colorText: "rgba(239, 241, 246, 0.75)",
+						},
+					}}
+				>
+					<MenuBar />
+					<Outlet />
+				</ConfigProvider>
 			</UserContextProvider>
-		</div>
+		</>
 	);
 }
 

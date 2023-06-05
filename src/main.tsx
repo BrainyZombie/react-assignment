@@ -4,6 +4,7 @@ import App from "./routes/App.js";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ConditionalRoute } from "./component";
 import { UserContext } from "./context/UserContext.js";
+import { ProblemsRoute, problemsLoader } from "./routes";
 
 const router = createBrowserRouter([
 	{
@@ -15,8 +16,9 @@ const router = createBrowserRouter([
 				element: <>hi</>,
 			},
 			{
-				path: "problems",
-				element: <>problems</>,
+				path: "problemset",
+				loader: problemsLoader,
+				element: <ProblemsRoute />,
 			},
 			{
 				path: "login",

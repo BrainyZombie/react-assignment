@@ -40,7 +40,6 @@ export const MenuBar: React.FC<MenuBarProps> = () => {
 };
 
 const StyledMenu = styled(Menu)`
-	position: fixed;
 	width: 100%;
 	font-size: 1.1em;
 	& > .ant-menu-item {
